@@ -1,0 +1,25 @@
+.icon-button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-radius: 50em;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.23s all; }
+  .icon-button:hover, .icon-button:focus {
+    background-color: #f9f9f9;
+    box-shadow: 0px 0px 0px 5px #f9f9f9; }
+  .icon-button:active {
+    box-shadow: 0px 0px 0px 7px #f3f3f3; }
+  .icon-button.primary {
+    color: #e55d61; }
+    .icon-button.primary:hover, .icon-button.primary:focus {
+      background-color: rgba(229, 93, 97, 0.17);
+      box-shadow: 0px 0px 0px 5px rgba(229, 93, 97, 0.17); }
+    .icon-button.primary:active {
+      box-shadow: 0px 0px 0px 8px rgba(229, 93, 97, 0.27);
+      transition: 0.1s all; }

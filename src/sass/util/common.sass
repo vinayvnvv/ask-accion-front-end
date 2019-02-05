@@ -1,0 +1,30 @@
+@import './vars.sass'
+.text-primary
+    color: $primary
+
+.typing-anim
+    width: 70px
+    margin-left: 21px
+    margin-top: 7px
+    text-align: center
+    padding: 13px 0px
+    display: flex
+    align-items: center
+    justify-content: center
+    border-radius: 18px
+    border: 1px solid #d9d9d987
+    margin-bottom: 9px
+    &>div
+        width: 9px
+        min-height: 9px
+        margin: 0 3px
+        background-color: #b5b5b5
+        border-radius: 100%
+        display: inline-block
+        -webkit-animation: bouncedelay 1.4s infinite ease-in-out both
+        animation: bouncedelay 1.4s infinite ease-in-out both
+    & .bounce1
+        -webkit-animation-delay: -0.32s
+        animation-delay: -0.32s
+    & .bounce2
+        animation-delay: -0.16s

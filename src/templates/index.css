@@ -1,0 +1,73 @@
+.Templates > ._toolbar {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  padding: 0 21px;
+  box-shadow: 0px 0px 9px -2px #aaa; }
+  .Templates > ._toolbar > ._ttl {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.03em; }
+
+.Templates > ._container {
+  padding: 21px; }
+  .Templates > ._container ._section {
+    box-shadow: 0px 0px 4px -1px #aaa;
+    border-radius: 5px; }
+    .Templates > ._container ._section > ._ttl {
+      padding: 21px;
+      border-bottom: 1px solid #d9d9d977;
+      font-size: 16px;
+      font-weight: 600; }
+    .Templates > ._container ._section > ._editor {
+      display: flex; }
+      .Templates > ._container ._section > ._editor > div {
+        padding: 21px;
+        min-height: 100%;
+        flex-grow: 1;
+        border-right: 1px solid #d9d9d977;
+        flex-basis: 33.33%; }
+        .Templates > ._container ._section > ._editor > div:last-child {
+          border-right: none; }
+        .Templates > ._container ._section > ._editor > div > ._ttl {
+          font-size: 16px;
+          color: #999999;
+          font-weight: 600;
+          margin-bottom: 13px; }
+
+.Templates .input-section {
+  display: flex;
+  margin: 4px 11px;
+  align-items: flex-start; }
+  .Templates .input-section > label {
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    margin-right: 33px;
+    font-size: 16px;
+    color: #333333;
+    min-width: 100px;
+    max-width: 100px;
+    flex-wrap: wrap; }
+
+.Templates input, .Templates textarea {
+  outline: none;
+  max-width: 300px;
+  border: none;
+  width: 100%;
+  border-radius: 21px;
+  min-height: 32px;
+  padding: 0 13px;
+  font-size: 14px;
+  background-color: #f5f5f5;
+  font-family: "Roboto", sans-serif; }
+  .Templates input:focus, .Templates textarea:focus {
+    background-color: #fff;
+    box-shadow: 0px 0px 0px 2px #2196f38f; }
+
+.Templates textarea {
+  border-radius: 13px;
+  padding: 13px; }
+
+.Templates .card {
+  max-width: 350px; }

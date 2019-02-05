@@ -1,0 +1,38 @@
+.card-template-1 {
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  overflow: hidden; }
+  .card-template-1 > .card-title {
+    padding: 16px 16px 8px 16px;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 1.3rem;
+    font-weight: 400; }
+  .card-template-1 > .card-content {
+    padding: 8px 16px 16px 16px;
+    font-size: 0.875rem;
+    letter-spacing: 0.01071em;
+    font-weight: 400; }
+  .card-template-1 > .card-actions {
+    border-top: 1px solid #d9d9d977;
+    display: flex;
+    align-items: center; }
+    .card-template-1 > .card-actions > div {
+      flex-grow: 1;
+      padding: 13px;
+      border-right: 1px solid #d9d9d977;
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      cursor: pointer;
+      text-align: center;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.02857em;
+      color: #e55d61;
+      width: 50%; }
+      .card-template-1 > .card-actions > div:hover {
+        background-color: #f9f9f9; }
+      .card-template-1 > .card-actions > div:last-child {
+        border-right: none; }

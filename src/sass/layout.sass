@@ -1,0 +1,126 @@
+@import './util/mixins.sass'
+@import './util/vars.sass'
+$toolbar-height: 52px
+.ChatApp
+    position: fixed
+    top: 0
+    left: 0
+    background-color: #f0f0f0
+    width: 100%
+    height: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    &>.app-content
+        &.show-app-toolbar
+            &>.app-toolbar
+                transform: translateY(0px)
+        &>.app-toolbar
+            position: absolute
+            top: 0
+            left: 0
+            background-color: #ffffff
+            z-index: 45
+            width: 100%
+            height: $toolbar-height
+            box-shadow: 0px 0px 5px -1px #d9d9d9
+            display: flex
+            align-items: center
+            transform: translateY(-$toolbar-height)
+            transition: 0.19s all
+            &>.app-title
+                margin: 0 7px
+                font-weight: 700
+                font-size: 18px
+                letter-spacing: -0.07em
+            &>.logo
+                margin-left: 21px
+                &>img
+                    width: 32px
+                    height: auto
+        max-width: 550px
+        width: 550px
+        height: 100%
+        top: 0
+        position: absolute
+        background-color: #fff
+        display: flex
+        flex-direction: column
+        box-shadow: 0px 0px 13px 0px #d9d9d9, 0px 0px 33px -2px #00000018, 0px 0px 283px -5px #00000025
+        +media-only-mobile
+            width: 100%
+        &>.chat-container
+            flex-grow: 1
+            margin-top: $toolbar-height
+            overflow-y: auto
+            &.adjust-to-header
+                margin-top: 0px
+            &::-webkit-scrollbar
+                width: 5px
+            &::-webkit-scrollbar-track
+                background-color: transparent
+            &::-webkit-scrollbar-thumb
+                background-color: #66666656
+                border-radius: 5px
+            &::-webkit-scrollbar-thumb:hover
+                background-color: #666
+        &>.chat-footer
+            height: 42px
+            min-height: 42px
+            display: flex
+            align-items: center
+            box-shadow: 0px 1px 0px 2px #d9d9d9
+            border-top: #d9d9d9
+            padding: 1px 0px 0px 20px
+            z-index: 6
+            position: relative
+            &>.text-input
+                border: none
+                outline: none
+                border: none
+                height: 100%
+                width: calc(100% - 80px)
+                overflow: hidden
+                font-size: 16px
+                color: #000000
+            &>.icon-button
+                position: absolute
+                right: 20px
+                transition: 0.33s all
+            &>.voice-said
+                position: absolute
+                top: -42px
+                display: flex
+                align-items: center
+                justify-content: center
+                width: 100%
+                &>._text
+                    font-weight: bold
+                    font-size: 12px
+                    background-color: #ffffff
+                    padding: 7px 13px
+                    border: 1px solid #d9d9d9
+                    border-radius: 35px
+            &.is-suggestion
+                border-top: transparent
+                box-shadow: none
+            &.voice-listening
+                &>.text-input
+                    opacity: 0
+                    pointer-events: none
+                &>.icon-button
+                    transform: translateX(-50%)
+                    left: 50%
+                    background-color: transparent
+                    box-shadow: 0px 0px 0px 3px transparentize($primary, 0.55)
+                    &:after
+                        content: ''
+                        position: absolute
+                        z-index: 4
+                        left: 0px
+                        top: 0px
+                        width: 100%
+                        height: 100%
+                        border-radius: 50em
+                        animation: 1.145s voiceBubble infinite linear
+                        animation-fill-mode: forwards

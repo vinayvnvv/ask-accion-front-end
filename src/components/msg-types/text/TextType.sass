@@ -1,0 +1,28 @@
+$msg-radius: 18px
+$msg-v-padding: 9px
+$msg-h-padding: 15px
+.TextType
+    display: flex
+    align-items: flex-start
+    justify-content: center
+    flex-direction: column
+    margin: 7px 0px
+    &.has-footer
+        &>._text
+            overflow: hidden
+            &>.LinkType
+                margin: $msg-v-padding (-$msg-h-padding) (-$msg-v-padding) (-$msg-h-padding)
+                border-top: 1px solid #d9d9d9
+
+    &.user
+        align-items: flex-end
+        &>._text
+            background-color: #f6f6f6
+            border-color: transparent
+    &>._text
+        max-width: 70%
+        border: 1px solid #d9d9d989
+        padding: $msg-v-padding $msg-h-padding
+        border-radius: $msg-radius
+        font-size: 15px
+        color: #333333

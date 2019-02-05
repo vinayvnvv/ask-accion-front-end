@@ -1,0 +1,25 @@
+.LinkType > ._item {
+  padding: 9px 11px;
+  border-bottom: 1px solid #d9d9d9;
+  display: flex;
+  align-items: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 600;
+  color: #000;
+  text-decoration: none; }
+  .LinkType > ._item > i {
+    font-size: 14px;
+    margin-right: 7px;
+    text-decoration: none; }
+  .LinkType > ._item > span {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .LinkType > ._item:last-child {
+    border-bottom: 0px; }
+  .LinkType > ._item:hover {
+    background-color: #f9f9f9; }

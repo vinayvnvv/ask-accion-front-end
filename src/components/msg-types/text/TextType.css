@@ -1,0 +1,23 @@
+.TextType {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  margin: 7px 0px; }
+  .TextType.has-footer > ._text {
+    overflow: hidden; }
+    .TextType.has-footer > ._text > .LinkType {
+      margin: 9px -15px -9px -15px;
+      border-top: 1px solid #d9d9d9; }
+  .TextType.user {
+    align-items: flex-end; }
+    .TextType.user > ._text {
+      background-color: #f6f6f6;
+      border-color: transparent; }
+  .TextType > ._text {
+    max-width: 70%;
+    border: 1px solid #d9d9d989;
+    padding: 9px 15px;
+    border-radius: 18px;
+    font-size: 15px;
+    color: #333333; }
