@@ -4,9 +4,9 @@ import { ChatContainer } from './chat-container/ChatContainer';
 import { IMsgs } from './../models';
 import SpeechToText from 'speech-to-text';
 import { Socket } from './../socket';
-import { Parser, IMsgParser } from './../services';
+import { Parser, IMsgParser, Auth } from './../services';
 import { ChatSuggestion } from './chat-suggestion/ChatSuggestion';
-const uuid = uuidv4();
+let uuid = uuidv4();
 interface IState {
     msgs: IMsgs[];
     inputText: string;
@@ -29,6 +29,9 @@ export class ChatApp extends React.Component<any, IState> {
         voiceMsg: '',
         suggestions: []
     };
+    empId: string;
+    emp: any = null;
+    isInit: boolean = false;
     scroller = React.createRef<HTMLDivElement>();
     scrollPos: number = 0;
     speechListener: any;
@@ -41,10 +44,35 @@ export class ChatApp extends React.Component<any, IState> {
     componentDidMount() {
         if(this.scroller && this.scroller.current) this.scroller.current.addEventListener('scroll', this.onContainerScroll);
         this.listenSockets();
+        this.listenSocketOnInit();
+    }
+
+    listenSocketOnInit() {
+        Socket.onInit((body: any) => {
+            this.empId = body.empId;
+            this.emp = body.emp[0];
+        })
     }
 
     listenSockets() {
         Socket.onMessage((msg: IMsgs) => {
+            if(msg.resetSession) uuid = uuidv4();
+            console.log('on msg from server:', msg);
+            if(msg.intent === 'init') {
+                console.log('inited');
+                const startMsg: IMsgs = {
+                    msg: 'Hi ' + Auth.getAuth().name,
+                    from: 'bot',
+                    type: 'text'
+                };
+                if(!this.isInit) {
+                    this.isInit = true;
+                    Socket.emitInit(Auth.getAuth().email);
+                    this.pushMsgs(startMsg);
+                    this.pushMsgs(msg);
+                }
+                return;
+            }
             this.pushMsgs(msg);
         });
     }
@@ -96,7 +124,7 @@ export class ChatApp extends React.Component<any, IState> {
         }
     }
     pushMsgs = (msg: IMsgs) => {
-        msg = this.parseMsg(msg);
+        if(msg.from === 'bot') msg = this.parseMsg(msg);
         this.setState({
             msgs: [...this.state.msgs, msg],
             suggestions: []
@@ -104,7 +132,7 @@ export class ChatApp extends React.Component<any, IState> {
             this.scrollToBottom();
             if(msg.from === 'user') {
                 this.sendMsg(
-                    {msg: msg.msg, uuid}
+                    {msg: msg.msg, uuid, empId: this.empId, emailId: Auth.getAuth().email}
                 );
             }
             if(msg.from === 'bot') {
@@ -115,8 +143,21 @@ export class ChatApp extends React.Component<any, IState> {
             }
         });
     }
+    onChatContainerSendText = (text: string) => {
+        const msg: IMsgs = {
+            type: 'text', msg: text, from: 'user'
+        };
+        this.pushMsgs(msg);
+    }
 
     parseMsg = (msg: IMsgs) => {
+        const parsedCard: any = Parser.parseCards(msg.msg);
+        console.log('parsedCard', parsedCard);
+        if(parsedCard) {
+            msg.card = parsedCard;
+            msg.type = 'card';
+            return msg;
+        }
         const parsedText: IMsgParser = Parser.parseText(msg.msg);
         console.log('parsed text', parsedText)
         msg.msg = parsedText.text ? parsedText.text : '';
@@ -225,7 +266,7 @@ export class ChatApp extends React.Component<any, IState> {
                     </div>
                     <div className={"chat-container" + (this.state.scrollPos > 40 ? ' adjust-to-header ' : '')}
                         ref={this.scroller}>
-                        <ChatContainer msgs={this.state.msgs} />
+                        <ChatContainer msgs={this.state.msgs} onSendText={this.onChatContainerSendText} />
                         {((this.state.msgs.length === 0) || (this.state.msgs[this.state.msgs.length-1].from === 'user')) && (
                             <div className="typing-anim">
                                 <div className="bounce1"/>

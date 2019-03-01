@@ -1,0 +1,37 @@
+@import './../../../sass/util/vars.sass'
+.PeopleList
+    flex-direction: column
+    &>._list
+        display: flex
+        align-items: center
+        padding: 7px 5px
+        border: 1px solid #d9d9d9
+        margin-top: -1px
+        max-width: $chat-msgs-max-width
+        cursor: pointer
+        &:hover
+            background-color: #f9f9f9
+        &:first-child
+            border-radius: 5px 5px 0px 0px
+        &:last-child
+            border-radius: 0px 0px 5px 5px
+        &:first-child:last-child
+            border-radius: 5px
+        &>._left
+            width: 50px
+            height: 50px
+            display: flex
+            align-items: center
+            justify-content: center
+            &>img
+                width: 42px
+                height: 42px
+                border-radius: 50em
+        &>._right
+            margin-left: 13px
+            &>._nm
+                font-weight: 500
+            &>._mail
+                color: #777777
+                font-size: 12px
+                margin-top: 3px

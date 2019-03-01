@@ -27,3 +27,10 @@
     animation-delay: -0.32s; }
   .typing-anim .bounce2 {
     animation-delay: -0.16s; }
+
+.chat-holder {
+  display: flex; }
+  .chat-holder.user {
+    justify-content: flex-end; }
+  .chat-holder > .chat-msg-item {
+    max-width: 70%; }

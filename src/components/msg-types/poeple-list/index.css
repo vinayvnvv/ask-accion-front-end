@@ -1,0 +1,36 @@
+.PeopleList {
+  flex-direction: column; }
+  .PeopleList > ._list {
+    display: flex;
+    align-items: center;
+    padding: 7px 5px;
+    border: 1px solid #d9d9d9;
+    margin-top: -1px;
+    max-width: 70%;
+    cursor: pointer; }
+    .PeopleList > ._list:hover {
+      background-color: #f9f9f9; }
+    .PeopleList > ._list:first-child {
+      border-radius: 5px 5px 0px 0px; }
+    .PeopleList > ._list:last-child {
+      border-radius: 0px 0px 5px 5px; }
+    .PeopleList > ._list:first-child:last-child {
+      border-radius: 5px; }
+    .PeopleList > ._list > ._left {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .PeopleList > ._list > ._left > img {
+        width: 42px;
+        height: 42px;
+        border-radius: 50em; }
+    .PeopleList > ._list > ._right {
+      margin-left: 13px; }
+      .PeopleList > ._list > ._right > ._nm {
+        font-weight: 500; }
+      .PeopleList > ._list > ._right > ._mail {
+        color: #777777;
+        font-size: 12px;
+        margin-top: 3px; }

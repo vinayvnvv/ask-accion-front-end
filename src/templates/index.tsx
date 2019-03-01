@@ -5,6 +5,7 @@ interface ICard1 {
     title: string;
     content: string;
     actions: string[];
+    output: string;
 }
 
 interface IState {
@@ -13,7 +14,11 @@ interface IState {
 
 export class Templates extends React.Component<any, IState> {
     state: IState = {
-        card1: {title: 'Card Title', content: 'Card Content', actions: ['view', 'open']}
+        card1: {title: 'Card Title', content: 'Card Content', actions: ['view', 'open'], output: ''}
+    }
+
+    componentDidMount() {
+        this.makeCard1Output();
     }
 
     onInputValueChange = (card: string, field: string, e: any) =>  {
@@ -24,7 +29,34 @@ export class Templates extends React.Component<any, IState> {
         } else {
             temp[field] = e.target.value;
         }
+        if(card === 'card1') this.makeCard1Output();
         this.setState({card1: temp});
+    }
+
+    makeCard1Output = () => {
+        let output: string = "";
+        let valid: boolean = false;
+        if(this.state.card1.title !== '') {
+            valid = true;
+            output += "[card-title]" + this.state.card1.title + "[/card-title]";
+        }
+        if(this.state.card1.content !== '') {
+            valid = true;
+            output += "[card-content]" + this.state.card1.content + "[/card-content]";
+        }
+        if(this.state.card1.actions[0] !== '' || this.state.card1.actions[1] !== '') {
+            let actions: string = "";
+            if(this.state.card1.actions[0] !== '') actions += '{{"label":"' + this.state.card1.actions[0] + '", "value": "' + this.state.card1.actions[0] + '"}},';
+            if(this.state.card1.actions[1] !== '') actions += '{{"label":"' + this.state.card1.actions[1] + '", "value": "' + this.state.card1.actions[1] + '"}}';
+            if(actions.lastIndexOf(',') === actions.length-1) actions = actions.substring(0, actions.length-1);
+            output += "[card-actions][" + actions + "][/card-actions]";
+        }
+        output = "[card-1]" + output + "[/card-1]";
+        const temp: ICard1 = this.state.card1;
+        temp.output = (valid ? output : '');
+        this.setState({
+            card1: temp
+        });
     }
     render() {
         return (
@@ -99,7 +131,9 @@ export class Templates extends React.Component<any, IState> {
                             </div>
                             <div className="_output">
                                 <div className="_ttl">Output</div>
-                                <div className="_content">Content</div>
+                                <div className="_content">
+                                    <div className="textarea" contentEditable={true}>{this.state.card1.output}</div>
+                                </div>
                             </div>
                         </div>
                     </div>

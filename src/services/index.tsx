@@ -1,2 +1,3 @@
-import { Parser, IMsgParser } from './parser.service';
-export { Parser, IMsgParser };
+import { Parser, IMsgParser, ICard } from './parser.service';
+import { IProfile, Auth } from './auth.service';
+export { Parser, IMsgParser, ICard, IProfile, Auth };

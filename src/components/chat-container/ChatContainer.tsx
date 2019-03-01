@@ -2,10 +2,13 @@ import * as React from 'react';
 import './ChatContainer.css';
 import { IMsgs } from './../../models';
 import { TextType } from './../msg-types';
+import { CardType1 } from './../msg-types/cards/card-1/CardType1';
+import { PeopleList } from './../msg-types/poeple-list';
 
 
 interface IProps {
     msgs: IMsgs[];
+    onSendText?: any;
 }
 
 
@@ -17,6 +20,8 @@ export class ChatContainer extends React.Component<IProps, any> {
                     {this.props.msgs.map((msg: IMsgs, index) =>
                         <div className="ChatMsgContainer" key={index}>
                             {msg.type == 'text' && <TextType msg={msg} />}
+                            {msg.type == 'card' && <CardType1 msg={msg} />}
+                            {msg.type == 'people-list' && <PeopleList msg={msg} onSendText={this.props.onSendText}/>}
                         </div>
                     )}
             </div>  
