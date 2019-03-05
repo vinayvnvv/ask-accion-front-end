@@ -1,4 +1,4 @@
-.LinkType > ._item {
+.LinkType > div > ._item {
   padding: 9px 11px;
   border-bottom: 1px solid #d9d9d9;
   display: flex;
@@ -10,16 +10,16 @@
   font-weight: 600;
   color: #000;
   text-decoration: none; }
-  .LinkType > ._item > i {
+  .LinkType > div > ._item > i {
     font-size: 14px;
     margin-right: 7px;
     text-decoration: none; }
-  .LinkType > ._item > span {
+  .LinkType > div > ._item > span {
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; }
-  .LinkType > ._item:last-child {
+  .LinkType > div > ._item:last-child {
     border-bottom: 0px; }
-  .LinkType > ._item:hover {
+  .LinkType > div > ._item:hover {
     background-color: #f9f9f9; }

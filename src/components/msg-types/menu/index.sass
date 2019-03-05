@@ -1,0 +1,35 @@
+
+.MsgTypeMenu
+    margin: 21px 0px
+    &>._items
+        display: flex
+        align-items: center
+        padding: 21px
+        border: 1px solid #d9d9d9
+        margin-top: -1px
+        cursor: pointer
+        &:first-child
+            border-radius: 7px 7px 0px 0px
+        &:last-child
+            border-radius: 0px 0px 7px 7px
+        &:first-child:last-child
+            border-radius: 7px
+        &:hover
+            background-color: #f5f5f5
+        &>._left
+            width: 50px
+            min-width: 50px
+            justify-content: center
+            &>i
+                font-size: 33px
+                color: #3f51b5
+        &>._right
+            flex-grow: 1
+            &>._name
+                color: #111111
+                font-size: 16px
+                font-weight: 500
+            &>._desc
+                color: #999999
+                margin-top: 3px
+                font-size: 14px

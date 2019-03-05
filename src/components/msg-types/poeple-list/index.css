@@ -27,10 +27,17 @@
         height: 42px;
         border-radius: 50em; }
     .PeopleList > ._list > ._right {
-      margin-left: 13px; }
+      margin-left: 13px;
+      overflow: hidden; }
       .PeopleList > ._list > ._right > ._nm {
-        font-weight: 500; }
+        font-weight: 500;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }
       .PeopleList > ._list > ._right > ._mail {
         color: #777777;
         font-size: 12px;
-        margin-top: 3px; }
+        margin-top: 3px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }

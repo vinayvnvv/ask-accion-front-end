@@ -1,3 +1,5 @@
+import { IMsgs } from 'src/models';
+import { Auth, IProfile } from './auth.service';
 
 
 export interface IMsgParser {
@@ -73,6 +75,16 @@ class ParserClass {
         obj['texts'] = texts;
         obj['templateId'] = 1;
         return obj;
+    }
+
+    parseVars(msg: IMsgs) {
+        let str = JSON.stringify(msg);
+        const auth: IProfile = Auth.getAuth();
+        str = str.replace(/\[\[([A-Za-z0-9]+)\]\]/g, ($1, $2) => {
+            if($2 === 'firstName') return auth.givenName;
+            else return "";
+        });
+        return JSON.parse(str);
     }
 }
 export const Parser = new ParserClass();

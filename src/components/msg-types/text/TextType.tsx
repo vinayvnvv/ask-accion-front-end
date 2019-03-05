@@ -10,11 +10,17 @@ interface IProps {
 export class TextType extends React.Component<IProps, any> {
     render() {
         return(
-            <div className={"TextType " + this.props.msg.from + (this.props.msg.links && this.props.msg.links.length>0 ? ' has-footer ' : '')}>
+            <div className={"TextType " + this.props.msg.from + (
+                                    ((this.props.msg.links && this.props.msg.links.length>0) || 
+                                     (this.props.msg.phoneNumber && this.props.msg.phoneNumber.length>0)
+                                    ) ? ' has-footer ' : '')}>
                 <div className="_text">
                     <div dangerouslySetInnerHTML={{__html: this.props.msg.msg}} />
                     {this.props.msg.links && this.props.msg.links.length>0 && (
-                        <LinkType links={this.props.msg.links} />
+                        <LinkType links={this.props.msg.links} type={'url'}/>
+                    )}
+                    {this.props.msg.phoneNumber && this.props.msg.phoneNumber.length>0 && (
+                        <LinkType links={this.props.msg.phoneNumber} type={'phone-number'}/>
                     )}
                 </div>
             </div>  

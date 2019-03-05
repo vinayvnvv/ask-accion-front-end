@@ -63,6 +63,17 @@ a {
         font-weight: 700;
         font-size: 18px;
         letter-spacing: -0.07em; }
+        .ChatApp > .app-content > .app-toolbar > .app-title > span {
+          position: relative;
+          color: #ffffff;
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 0.03em;
+          top: -7px;
+          background-color: #000000;
+          border-radius: 3px;
+          padding: 1px 3px;
+          left: 3px; }
       .ChatApp > .app-content > .app-toolbar > .logo {
         margin-left: 21px; }
         .ChatApp > .app-content > .app-toolbar > .logo > img {

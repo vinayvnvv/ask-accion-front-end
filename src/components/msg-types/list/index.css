@@ -1,0 +1,15 @@
+.MsgTypeList {
+  margin: 21px 0px; }
+  .MsgTypeList > ._items {
+    padding: 15px;
+    border: 1px solid #d9d9d9;
+    margin-top: -1px;
+    cursor: pointer; }
+    .MsgTypeList > ._items:first-child {
+      border-radius: 7px 7px 0px 0px; }
+    .MsgTypeList > ._items:last-child {
+      border-radius: 0px 0px 7px 7px; }
+    .MsgTypeList > ._items:first-child:last-child {
+      border-radius: 7px; }
+    .MsgTypeList > ._items:hover {
+      background-color: #f5f5f5; }

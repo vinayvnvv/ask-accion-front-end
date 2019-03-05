@@ -151,6 +151,7 @@ export class ChatApp extends React.Component<any, IState> {
     }
 
     parseMsg = (msg: IMsgs) => {
+        msg = Parser.parseVars(msg);
         const parsedCard: any = Parser.parseCards(msg.msg);
         console.log('parsedCard', parsedCard);
         if(parsedCard) {
@@ -262,7 +263,7 @@ export class ChatApp extends React.Component<any, IState> {
                         <div className="logo">
                             <img src={require('./../assets/img/logo.png')} />
                         </div>
-                        <div className="app-title">Ask Accion</div>
+                        <div className="app-title">Ask Accion <span>BETA</span></div>
                     </div>
                     <div className={"chat-container" + (this.state.scrollPos > 40 ? ' adjust-to-header ' : '')}
                         ref={this.scroller}>
