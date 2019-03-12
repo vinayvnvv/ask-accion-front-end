@@ -1,6 +1,6 @@
 import { ICard } from './services';
 export interface IMsgs {
-    type: 'text' | 'menu' | 'card' | 'people-list' | 'list' | 'listView';
+    type: 'text' | 'menu' | 'card' | 'people-list' | 'list' | 'listView' | 'peopleListCard';
     msg: string;
     from: 'bot' | 'user';
     links?: string[];
@@ -13,6 +13,8 @@ export interface IMsgs {
     menu?: IMenu[];
     list?: string[];
     listView?: IListView[];
+    isCall?: boolean;
+    peopleListCard?: IPeopleListCard[];
 }
 
 export interface IMenu {
@@ -25,4 +27,12 @@ export interface IListView {
     title: string;
     disableClick?: boolean;
     desc?: string; 
+}
+
+export interface IPeopleListCard {
+    name: string;
+    email: string;
+    onClickText: string;
+    photo?: string;
+    desc?: string[];
 }

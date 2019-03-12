@@ -6,6 +6,7 @@ import SpeechToText from 'speech-to-text';
 import { Socket } from './../socket';
 import { Parser, IMsgParser, Auth } from './../services';
 import { ChatSuggestion } from './chat-suggestion/ChatSuggestion';
+import { ActionService } from './../services';
 let uuid = uuidv4();
 interface IState {
     msgs: IMsgs[];
@@ -26,7 +27,7 @@ export class ChatApp extends React.Component<any, IState> {
         isToolbar: true,
         isVoiceListening: false,
         voiceOnSaidMsg: null,
-        voiceMsg: '',
+        voiceMsg: '',   
         suggestions: []
     };
     empId: string;
@@ -124,7 +125,10 @@ export class ChatApp extends React.Component<any, IState> {
         }
     }
     pushMsgs = (msg: IMsgs) => {
-        if(msg.from === 'bot') msg = this.parseMsg(msg);
+        if(msg.from === 'bot') {
+            msg = this.parseMsg(msg);
+            ActionService.executeActions(msg);
+        }
         this.setState({
             msgs: [...this.state.msgs, msg],
             suggestions: []

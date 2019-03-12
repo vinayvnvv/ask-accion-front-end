@@ -7,6 +7,7 @@ import { PeopleList } from './../msg-types/poeple-list';
 import { Menu } from './../msg-types/menu';
 import { List } from './../msg-types/list';
 import { ListView } from './../msg-types/list-view';
+import { PeopleListCard } from './../msg-types/poeple-list-card';
 
 
 interface IProps {
@@ -29,6 +30,7 @@ export class ChatContainer extends React.Component<IProps, any> {
                             {msg.type == 'menu' && <Menu msg={msg} onSendText={this.props.onSendText}/>}
                             {msg.type == 'list' && <List msg={msg} onSendText={this.props.onSendText}/>}
                             {msg.type == 'listView' && <ListView msg={msg} onSendText={this.props.onSendText} />}
+                            {msg.type == 'peopleListCard' && <PeopleListCard msg={msg} onSendText={this.props.onSendText} />}
                         </div>
                     )}
             </div>  

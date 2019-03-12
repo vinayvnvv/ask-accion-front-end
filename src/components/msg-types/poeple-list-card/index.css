@@ -1,0 +1,49 @@
+.PeopleListCard {
+  flex-direction: column; }
+  .PeopleListCard > ._list {
+    display: flex;
+    align-items: center;
+    padding: 7px 5px;
+    border: 1px solid #d9d9d9;
+    margin-top: -1px;
+    cursor: pointer; }
+    .PeopleListCard > ._list:hover {
+      background-color: #f9f9f9; }
+    .PeopleListCard > ._list:first-child {
+      border-radius: 5px 5px 0px 0px; }
+    .PeopleListCard > ._list:last-child {
+      border-radius: 0px 0px 5px 5px; }
+    .PeopleListCard > ._list:first-child:last-child {
+      border-radius: 5px; }
+    .PeopleListCard > ._list > ._left {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .PeopleListCard > ._list > ._left > img {
+        width: 42px;
+        height: 42px;
+        border-radius: 50em; }
+    .PeopleListCard > ._list > ._right {
+      margin-left: 13px;
+      overflow: hidden; }
+      .PeopleListCard > ._list > ._right > ._nm {
+        font-weight: 500;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }
+      .PeopleListCard > ._list > ._right > ._mail {
+        color: #777777;
+        font-size: 12px;
+        margin-top: 3px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }
+      .PeopleListCard > ._list > ._right > ._desc {
+        margin-top: 7px;
+        padding-top: 7px;
+        border-top: 1px solid #d9d9d987; }
+        .PeopleListCard > ._list > ._right > ._desc > div {
+          font-size: 12px;
+          color: #555555; }
